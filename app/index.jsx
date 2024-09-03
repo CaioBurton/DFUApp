@@ -1,42 +1,23 @@
-import React from 'react';
-import { View, Image, Text, StyleSheet } from 'react-native';
-import { icons, images } from '../constants';
+// C:\Users\Caio Burton\Desktop\DFUApp\App.js
 
-export default function App() {
+import React from 'react';
+import { View, Image, Text } from 'react-native';
+import { icons, images } from '../constants';
+import { styled } from 'nativewind';
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to DFUApp</Text>
-      <Image source={images.logo} style={styles.logo} />
-      <Image source={icons.back} style={styles.icon} />
-      <Text style={styles.text}>This is an example using images and icons.</Text>
+    <View className="flex-1 justify-center items-center bg-blue-50">
+      <Text className="text-2xl font-psemibold text-gray-900 mb-4">
+        Welcome to DFUApp
+      </Text>
+      <Image source={images.logo} className="w-24 h-24 mb-4" />
+      <Image source={icons.back} className="w-12 h-12 mb-4" />
+      <Text className="text-lg text-gray-700">
+        This is an example using images and icons with NativeWind.
+      </Text>
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  logo: {
-    width: 100,
-    height: 100,
-    marginBottom: 20,
-  },
-  icon: {
-    width: 50,
-    height: 50,
-    marginBottom: 20,
-  },
-  text: {
-    fontSize: 16,
-    color: '#333333',
-  },
-});
+export default styled(App);
