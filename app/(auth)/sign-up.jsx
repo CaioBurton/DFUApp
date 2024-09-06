@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Dimensions, Image } from 'react-native'
+import { View, Text, ScrollView, Dimensions, Image, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -6,8 +6,11 @@ import { icons, images } from '../../constants';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
 import { Link } from 'expo-router';
+import Checkbox from 'expo-checkbox';
 
 const signUp = () => {
+  const [isChecked, setChecked] = useState(false);
+
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -17,7 +20,11 @@ const signUp = () => {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const submit = () => {
-
+    if (isChecked) {
+      // Perform submit logic here
+    } else {
+      Alert.alert("Error", "Please agree to the Terms and Conditions");
+    }
   }
 
   return (
@@ -37,7 +44,7 @@ const signUp = () => {
               value={form.username}
               placeholder={"Enter username"}
               handleChangeText={(e) => setForm({ ...form, email: e })}
-              otherStyles="mt-8"
+              otherStyles="mt-6"
               keyboardType="email-address"
             />
 
@@ -46,7 +53,7 @@ const signUp = () => {
               value={form.email}
               placeholder={"Enter email"}
               handleChangeText={(e) => setForm({ ...form, email: e })}
-              otherStyles="mt-4"
+              otherStyles="mt-3"
               keyboardType="email-address"
             />
 
@@ -55,25 +62,31 @@ const signUp = () => {
               value={form.password}
               placeholder={"Enter password"}
               handleChangeText={(e) => setForm({ ...form, password: e })}
-              otherStyles="mt-4"
+              otherStyles="mt-3"
             />
 
-            <View className="w-full pt-2">
-              <Text className="text-sm text-gray-300 font-pregular text-left ml-4">
+            <View className="w-full pt-4 flex flex-row items-center">
+              <Checkbox
+                className="ml-4"
+                value={isChecked}
+                onValueChange={setChecked}
+                color={isChecked ? '#003A67' : undefined}
+              />
+              <Text className="text-sm text-gray-300 font-pregular text-left pl-2">
                 I agree with the Terms and Conditions
               </Text>
             </View>
 
             <CustomButton
-              title="Login"
+              title="Sign Up"
               handlePress={submit}
               containerStyles={"mt-6"}
               isLoading={isSubmitting}
             />
 
-            <View className="w-full pt-10">
+            <View className="w-full pt-8">
               <Text className="text-xs text-gray-400 font-mbold text-center">
-                OR LOGIN WITH
+                OR SIGN UP WITH
               </Text>
             </View>
 
@@ -87,10 +100,10 @@ const signUp = () => {
 
             <View className="flex justify-center pt-10 flex-row gap-1 mb-10">
               <Text className="text-base text-black-100 font-mregular">
-                Don't have an account?
+                Already have an account?
               </Text>
-              <Link href="/sign-up" className="text-base font-mbold text-secondary -ml-10">
-                Sign Up
+              <Link href="/sign-in" className="text-base font-mbold text-secondary -ml-10">
+                Sign In
               </Link>
           </View>
         </View>
