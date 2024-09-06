@@ -67,10 +67,10 @@ const signIn = () => {
             </View>
 
             <View className="">
-              <View className="flex flex-row items-center mt-4">
-                <Image source={icons.google} resizeMode='contain' className="w-8 h-8 ml-2" />
-                <Image source={icons.facebook} resizeMode='contain' className="w-8 h-8 ml-6" />
-                <Image source={icons.apple} resizeMode='contain' className="w-8 h-8 ml-6" />
+              <View className="flex flex-row items-center mt-4 space-x-8">
+                <Image source={icons.google} resizeMode='contain' className="w-8 h-8" />
+                <Image source={icons.facebook} resizeMode='contain' className="w-8 h-8" />
+                <Image source={icons.apple} resizeMode='contain' className="w-8 h-8" />
               </View>
             </View>
 
