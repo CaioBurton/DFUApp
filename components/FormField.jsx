@@ -17,6 +17,14 @@ return (
     <View className={`space-y-1 ${otherStyles}`}>
         <Text className="text-base text-gray-500 font-mbold">{title}</Text>
         <View className="w-11/12 h-12 px-10 bg-gray-100 border-black-200 flex flex-row items-center rounded-md">
+            {title === "Username" && (
+                <Image
+                    source={icons.user}
+                    className="w-5 h-5 -ml-6 mr-2"
+                    resizeMode="contain"
+                />
+            )}
+
             {title === "Email" && (
                 <Image
                     source={icons.email}
@@ -32,6 +40,7 @@ return (
                     resizeMode="contain"
                 />
             )}
+
 
             <TextInput
                 className="flex-1 text-gray-700 font-psemibold text-base"
