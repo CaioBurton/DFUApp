@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { icons, images } from '../../constants';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 
 const signIn = () => {
   const [form, setForm] = useState({
@@ -16,7 +16,7 @@ const signIn = () => {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const submit = () => {
-
+    router.replace('/listapacientes')
   }
 
   return (

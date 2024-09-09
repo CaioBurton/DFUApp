@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { icons, images } from '../../constants';
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import Checkbox from 'expo-checkbox';
 
 const signUp = () => {
@@ -21,7 +21,7 @@ const signUp = () => {
 
   const submit = () => {
     if (isChecked) {
-      // Perform submit logic here
+      router.replace('screens/listapacientes')
     } else {
       Alert.alert("Error", "Please agree to the Terms and Conditions");
     }
