@@ -17,13 +17,21 @@ const PatientList = () => {
     router.push("/detalhesdopaciente");
   };
 
+  const handleLogoutPress = () => {
+    router.push("/sign-in");
+  };
+
   return (
     <SafeAreaView className="bg-white h-full">
       <ScrollView>
         <View className="w-full h-full px-4 my-3">
           {/* Header */}
           <View className="flex-row justify-between items-center mb-6">
-            <Image source={icons.logout} resizeMode='contain' className="w-6 h-6" />
+            {/* Logout Button */}
+            <TouchableOpacity onPress={handleLogoutPress}>
+              <Image source={icons.logout} resizeMode='contain' className="w-6 h-6" />
+            </TouchableOpacity>
+            
             <Image source={icons.notifications} resizeMode='contain' className="w-6 h-6" />
             <Image source={icons.drawer} resizeMode='contain' className="w-6 h-6 -ml-64" />
           </View>
