@@ -11,6 +11,10 @@ const PatientDetails = () => {
     router.push("/listapacientes");
   };
 
+  const handleMedicalPress = () => {
+    router.push("/historicomedico");
+  };
+
   return (
     <SafeAreaView className="flex-1 bg-white">
       {/* Define a cor da StatusBar */}
@@ -58,31 +62,31 @@ const PatientDetails = () => {
           </View>
           <View className="flex-row items-center mb-7">
             <Image source={icons.email2} resizeMode="contain" className="w-5 h-5" />
-            <Text className="ml-3 text-gray-700">johndoe@example.com</Text>
+            <Text className="ml-3 font-mregular text-gray-700">johndoe@example.com</Text>
           </View>
           <View className="flex-row items-center">
             <Image source={icons.addres} resizeMode="contain" className="w-5 h-5" />
-            <Text className="ml-3 text-gray-700">33 Dale Avenue, Tacoma - WA</Text>
+            <Text className="ml-3 text-gray-700 font-mregular">33 Dale Avenue, Tacoma - WA</Text>
           </View>
         </View>
 
         {/* Information Section */}
         <View className="mt-6 px-6">
-          <Text className="text-lg font-pbold text-secondary mb-10">Information</Text>
+          <Text className="text-lg font-pbold text-secondary mb-10 mt-2">Information</Text>
 
-          <TouchableOpacity className="bg-gray-200 p-4 rounded-full flex-row items-center justify-center mb-3">
-            <Image source={icons.medicalInfo} resizeMode="contain" className="w-5 h-5" />
-            <Text className="ml-2 text-gray-700">Medical Info</Text>
+          <TouchableOpacity onPress={handleMedicalPress} className="bg-gray-100 p-4 rounded-full flex-row items-center justify-center mb-3" style={{ width: '60%', alignSelf: 'center' }}>
+            <Image source={icons.medical} resizeMode="contain" className="w-5 h-5" />
+            <Text className="ml-2 text-gray-700 font-mregular">Medical Info</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity className="bg-gray-200 p-4 rounded-full flex-row items-center justify-center mb-3">
-            <Image source={icons.lesion} resizeMode="contain" className="w-5 h-5" />
-            <Text className="ml-2 text-gray-700">Lesion evolution</Text>
+          <TouchableOpacity className="bg-gray-100 p-4 rounded-full flex-row items-center justify-center mb-3" style={{ width: '60%', alignSelf: 'center' }}>
+            <Image source={icons.bandaid} resizeMode="contain" className="w-5 h-5" />
+            <Text className="ml-2 text-gray-700 font-mregular">Lesion evolution</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity className="bg-blue-900 p-4 rounded-full flex-row items-center justify-center">
-            <Image source={icons.followUp} resizeMode="contain" className="w-5 h-5 text-white" />
-            <Text className="ml-2 text-white">Follow Up</Text>
+          <TouchableOpacity className="bg-secondary p-4 rounded-full flex-row items-center justify-center" style={{ width: '60%', alignSelf: 'center' }}>
+            <Image source={icons.camera} resizeMode="contain" className="w-5 h-5 text-white" />
+            <Text className="ml-2 text-white font-mregular">Follow Up</Text>
           </TouchableOpacity>
         </View>
       </ScrollView>

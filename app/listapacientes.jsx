@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { icons, images } from '../constants';
 import { router } from 'expo-router';
+import { StatusBar } from 'expo-status-bar';
 
 const PatientList = () => {
   const patients = [
@@ -24,6 +25,7 @@ const PatientList = () => {
   return (
     <SafeAreaView className="bg-white h-full">
       <ScrollView>
+        <StatusBar backgroundColor="#FFFFFF" barStyle="dark-content" />
         <View className="w-full h-full px-4 my-3">
           {/* Header */}
           <View className="flex-row justify-between items-center mb-6">
@@ -57,22 +59,21 @@ const PatientList = () => {
               <TouchableOpacity
                 key={patient.id}
                 onPress={() => handlePatientPress(patient.id)}
-                className="flex-row items-center bg-gray-50 rounded-lg p-4 shadow-sm"
+                className="flex-row items-center bg-gray-100 rounded-xl p-6 shadow-sm"
               >
                 {/* Avatar */}
-                <View className="bg-blue-800 p-1 rounded-full">
-                  <Image source={images.avatar} resizeMode='contain' className="w-12 h-12 text-white" />
+                <View className="">
+                  <Image source={images.avatar} resizeMode='contain' className="w-[55] h-[55] text-white mb-5" />
                 </View>
 
                 {/* Informações do Paciente */}
                 <View className="ml-4 flex-1">
-                  <Text className="text-lg font-pbold text-secondary">{patient.name}</Text>
-                  <Text className="text-sm text-gray-500 font-mregular">{patient.age} years old</Text>
-
+                  <Text className="text-base font-pbold text-secondary">{patient.name}</Text>
+                  <Text className="text-xs text-gray-300 font-mregular">{patient.age} years old</Text>
                   {/* Status de Acompanhamento */}
-                  <View className="flex-row items-center mt-2">
-                    <Image source={icons.calendar} resizeMode='contain' className="w-4 h-4 text-gray-500 mr-1" />
-                    <Text className="text-xs text-gray-500 font-mregular">Last follow-up {patient.lastFollowUp}</Text>
+                  <View className="flex-row items-center mt-4 -mb-3">
+                    <Image source={icons.calendar} resizeMode='contain' className="w-4 h-4 text-gray-500" />
+                    <Text className="text-xs text-black-100 font-mregular">Last follow-up {patient.lastFollowUp}</Text>
                   </View>
                 </View>
               </TouchableOpacity>
