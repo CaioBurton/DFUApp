@@ -8,7 +8,7 @@ import { router } from 'expo-router';
 const MedicalInfoScreen = () => {
 
   const handleBackPress = () => {
-    router.push("/listapacientes");
+    router.push("/detalhesdopaciente");
   };
 
   return (
@@ -18,7 +18,7 @@ const MedicalInfoScreen = () => {
 
       <ScrollView>
         {/* Header */}
-        <View className="flex-row justify-between items-center px-4 py-1 bg-gray-100 shadow h-12">
+        <View className="flex-row justify-between items-center px-4 py-3 bg-gray-100 shadow-md">
           <TouchableOpacity onPress={handleBackPress}>
             <Image source={icons.back} resizeMode="contain" className="w-6 h-6" />
           </TouchableOpacity>
@@ -29,23 +29,26 @@ const MedicalInfoScreen = () => {
         </View>
 
         {/* Patient Info */}
-        <View className="flex-row items-center py-6 justify-center">
+        <View className="items-center py-6 mt-8">
           {/* Avatar */}
-          <View className="bg-blue-900 rounded-full p-5">
-            <Image source={images.avatar} resizeMode="contain" className="w-15 h-15 text-white" />
+          <View className="bg-blue rounded-full">
+            <Image source={images.avatar} resizeMode="contain" className="w-20 h-20" />
           </View>
 
-          {/* Alinhamento à esquerda do Nome e Informações */}
-          <View className="-ml-2">
+          {/* Nome e Informações debaixo do Avatar */}
+          <View className="mt-4 items-center">
             <Text className="text-xl font-pbold text-secondary">John Doe</Text>
-            <Text className="text-black-100 font-mregular">Updated on 04/21/2023</Text>
+            <Text className="text-gray-300 text-sm font-mregular">Updated on 04/21/2023</Text>
           </View>
         </View>
 
         {/* About the patient */}
         <View className="px-4 mt-6">
-          <Text className="text-lg font-pbold text-secondary">About the patient</Text>
-          <Text className="text-gray-600 mt-2">
+        <View className="flex-row items-center">
+            <Image source={icons.profile} resizeMode="contain" className="w-6 h-6 mr-2" />
+            <Text className="text-xl font-pregular text-secondary">About the patient</Text>
+          </View>
+          <Text className="text-black-100 font-mregular mt-2 bg-gray-100 p-4 rounded-lg">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus
             placerat feugiat sollicitudin. In hac habitasse platea dictumst.
             Vivamus pulvinar iaculis ante, quis congue mi commodo non. Aenean
@@ -53,40 +56,44 @@ const MedicalInfoScreen = () => {
           </Text>
         </View>
 
-        {/* Icons Section */}
-        <View className="mt-6 px-4">
-          <View className="flex-row justify-between">
-            <TouchableOpacity className="items-center bg-blue-100 w-24 h-24 rounded-lg">
-              <View className="bg-teal-500 p-3 rounded-full mt-4">
-                <Image source={icons.medical} resizeMode="contain" className="w-5 h-5" />
-              </View>
-              <Text className="mt-2 text-blue-900 font-semibold">Medical History</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity className="items-center bg-orange-100 w-24 h-24 rounded-lg">
-              <View className="bg-orange-500 p-3 rounded-full mt-4">
-                <Image source={icons.diagnosis} resizeMode="contain" className="w-5 h-5" />
-              </View>
-              <Text className="mt-2 text-orange-900 font-semibold">Diagnosis</Text>
-            </TouchableOpacity>
-          </View>
-
-          <View className="flex-row justify-between mt-4">
-            <TouchableOpacity className="items-center bg-pink-100 w-24 h-24 rounded-lg">
-              <View className="bg-pink-500 p-3 rounded-full mt-4">
-                <Image source={icons.medication} resizeMode="contain" className="w-5 h-5" />
-              </View>
-              <Text className="mt-2 text-pink-900 font-semibold">Medication</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity className="items-center bg-purple-100 w-24 h-24 rounded-lg">
-              <View className="bg-purple-500 p-3 rounded-full mt-4">
-                <Image source={icons.otherinfo} resizeMode="contain" className="w-5 h-5" />
-              </View>
-              <Text className="mt-2 text-purple-900 font-semibold">Other Info</Text>
-            </TouchableOpacity>
-          </View>
+{/* Icons Section with Gray Background */}
+<View className="mt-6 px-4 h-80">
+  <View className="bg-gray-100 p-4 rounded-lg h-72">
+    <View className="flex-row justify-between">
+      <TouchableOpacity className="items-center bg-blue-100 w-32 h-32 rounded-lg">
+        <View className="p-1 rounded-full mt-4">
+          <Image source={icons.medicalHistory} resizeMode="contain" className="w-17 h-27" />
         </View>
+        <Text className="text-secondary font-pbold text-sm text-center">Medical History</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity className="items-center w-32 h-32 rounded-lg">
+        <View className="p-1 rounded-full mt-4">
+          <Image source={icons.diagnosis} resizeMode="contain" className="w-17 h-27" />
+        </View>
+        <Text className="text-secondary font-pbold text-sm text-center">Diagnosis</Text>
+      </TouchableOpacity>
+    </View>
+
+    <View className="flex-row justify-between mt-4">
+      <TouchableOpacity className="items-center w-32 h-32 rounded-lg">
+        <View className="p-1 rounded-full mt-4">
+          <Image source={icons.medication} resizeMode="contain" className="w-17 h-27" />
+        </View>
+        <Text className="text-secondary font-pbold text-sm text-center">Medication</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity className="items-center w-32 h-32 rounded-lg">
+        <View className="p-1 rounded-full mt-4">
+          <Image source={icons.info} resizeMode="contain" className="w-17 h-27" />
+        </View>
+        <Text className="text-secondary font-pbold text-sm text-center">Other Info</Text>
+      </TouchableOpacity>
+    </View>
+  </View>
+</View>
+
+
       </ScrollView>
     </SafeAreaView>
   );
